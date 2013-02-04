@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>myWebHook by mexitek</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>myWebHook</h1>
+        <p>A custom git web hook that allows you to automatically sync your repos with Github or Bitbucket</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/mexitek/myWebHook" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/mexitek/myWebHook/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/mexitek/myWebHook/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <p>A custom git web hook that allows you to automatically sync your repos with Github or Bitbucket. The web hook attempts 
+to update a folder with the same name of the branch, but this can be configured easily.</p>
+
+<h2>Concept</h2>
+
+<p>When using topic branching you can easily designate certain branches to represent application environments or locations.
+Imagine a branch dedicated to your staging, development or production environment.</p>
+
+<p><img src="https://dl.dropbox.com/u/5156502/myWebHookEnvironments.png" height="340"></p>
+
+<blockquote>
+<p>You can also associate a branch with multiple folders</p>
+</blockquote>
+
+<p><img src="https://dl.dropbox.com/u/5156502/myWebHookClients.png" height="340"></p>
+
+<h2>Installation</h2>
+
+<p>Simply download place the file <code>myWebHook.php</code> in your <code>www</code> or <code>public_html</code> directory on your hosting account.</p>
+
+<h2>Customization</h2>
+
+<p>Edit the first couple of variables in <code>myWebHook.php</code>. You can choose to change the name of your main git remote, 
+turn on web hook logs or associate a branch with custom folder paths.</p>
+
+<div class="highlight"><pre><span class="c1">// Your remote name</span>
+<span class="nv">$remote</span> <span class="o">=</span> <span class="s2">"origin"</span><span class="p">;</span>
+
+<span class="c1">// Aliases for branches and directories</span>
+<span class="nv">$aliases</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"master"</span>  <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s2">"path/to/production"</span> <span class="p">),</span>
+  <span class="s2">"staging"</span> <span class="o">=&gt;</span> <span class="s2">"path/to/staging"</span><span class="p">,</span>
+  <span class="s2">"clients"</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s2">"client1"</span><span class="p">,</span><span class="s2">"client2"</span><span class="p">,</span><span class="s2">"client3"</span><span class="p">,</span><span class="s2">"client4"</span> <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// Do you want a log file with web hook posts?</span>
+<span class="nv">$log</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
+</pre></div>
+
+<h2>Activate on Github</h2>
+
+<p><img src="https://dl.dropbox.com/u/5156502/myWebHookGithubSetup.png"></p>
+
+<h2>Activate on BitBucket</h2>
+
+<p><img src="https://dl.dropbox.com/u/5156502/myWebHookBitbucketSetup.png"></p>
+
+<h1>License: <a href="http://arlo.mit-license.org">arlo.mit-license.org</a>
+</h1>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/mexitek">mexitek</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-30608027-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
