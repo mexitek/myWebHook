@@ -77,7 +77,7 @@ $original_dir = getcwd();
 # Loop through the directories
 foreach($dirs_to_update as $dir) {
   chdir($dir);
-  exec("git pull ".escapeshellarg($remote)." ".escapeshellarg($branch));
+  exec("git pull $remote $branch");
   chdir($original_dir);
 }
 
