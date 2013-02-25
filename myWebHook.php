@@ -25,7 +25,7 @@ $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 
 
 if (empty($ip)) {
   header($protocol.' 400 Bad Request');
-  die('invalid ip saddress');
+  die('invalid ip address');
 } elseif (empty($_POST['payload'])) {
   header($protocol.' 400 Bad Request');
   die('missing payload');
