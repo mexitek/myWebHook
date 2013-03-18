@@ -70,7 +70,8 @@ if($log) {
 
 # Attempt to detect branch name
 if( isset($payload['canon_url']) && strpos($payload['canon_url'],"bitbucket")!== FALSE ) {
-  $branch = isset($payload['commits'][0]['branches']) ? $payload['commits'][0]['branches'][0]:$payload['commits'][0]['branch'];
+    $lastCommit = $payload['commits'][ count($payload['commits'])-1 ];
+    $branch     = isset($lastCommit['branches']) && !empty($lastCommit['branches']) ? $lastCommit['branches'][0]:$lastCommit['branch'];
 } else if( isset($payload['repository']['url']) && strpos($payload['repository']['url'],"github")!==FALSE ) {
   $branch = str_replace("refs/heads/","",$payload['ref']);
 } else {
