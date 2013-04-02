@@ -31,30 +31,6 @@ if (empty($ip)) {
   die('missing payload');
 }
 
-//Bitbucket
-//https://confluence.atlassian.com/display/BITBUCKET/POST+Service+Management
-$bitbucket = array('63.246.22.222');
-
-//Github
-//https://github.com/<user>/<repo>/settings/hooks
-$github = array(
-  '207.97.227.253',
-  '50.57.128.197',
-  '108.171.174.178',
-  '50.57.231.61',
-  '54.235.183.49',
-  '54.235.183.23',
-  '54.235.118.251',
-  '54.235.120.57',
-  '54.235.120.61',
-  '54.235.120.62'
-);
-
-if (!in_array($ip, array_merge($bitbucket, $github))) {
-  header($protocol.' 403 Forbidden');
-  die('invalid ip address');
-}
-
 # Receive POST data
 $payload = json_decode($_POST['payload'], true);
 
