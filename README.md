@@ -18,6 +18,8 @@ Imagine a branch dedicated to your staging, development or production environmen
 
 Simply download place the file `myWebHook.php` in your `www` or `public_html` directory on your hosting account.
 
+> If you can SSH into your webhost and navigate to your public_html/ or www/ directory, simply run: `wget http://rawgithub.com/mexitek/myWebHook/master/myWebHook.php`
+
 ## Customization
 
 Edit the first couple of variables in `myWebHook.php`. You can choose to change the name of your main git remote, 
