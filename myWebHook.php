@@ -23,16 +23,20 @@ $log = FALSE;
 $ip = $_SERVER['REMOTE_ADDR'];
 $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
 
+# Receive POST data
+if( ! empty($POST['payload']) ) {
+	$payload = json_decode($_POST['payload'], true);
+} else {
+	$payload = json_decode( file_get_contents( 'php://input' ), true );
+}
+
 if (empty($ip)) {
   header($protocol.' 400 Bad Request');
   die('invalid ip address');
-} elseif (empty($_POST['payload'])) {
+} elseif (empty($payload)) {
   header($protocol.' 400 Bad Request');
   die('missing payload');
 }
-
-# Receive POST data
-$payload = json_decode($_POST['payload'], true);
 
 # Make sure we have something
 if(empty($payload)) {
@@ -41,13 +45,13 @@ if(empty($payload)) {
 
 # Log posts
 if($log) {
-  file_put_contents($_SERVER['SCRIPT_FILENAME'].'.log',"Web Hook Post: ".date("F j, Y, g:i a")."\n".$_POST['payload']."\n\n", FILE_APPEND);
+  file_put_contents($_SERVER['SCRIPT_FILENAME'].'.log',"Web Hook Post: ".date("F j, Y, g:i a")."\n".print_r( $payload, true )."\n\n", FILE_APPEND);
 }
 
 # Attempt to detect branch name
-if( isset($payload['canon_url']) && strpos($payload['canon_url'],"bitbucket")!== FALSE ) {
-    $lastCommit = $payload['commits'][ count($payload['commits'])-1 ];
-    $branch     = isset($lastCommit['branches']) && !empty($lastCommit['branches']) ? $lastCommit['branches'][0]:$lastCommit['branch'];
+if ( isset( $payload['push'] ) ) {
+  $lastChange = $payload['push']['changes'][ count( $payload['push']['changes'] ) - 1 ]['new'];
+  $branch     = isset( $lastChange['name'] ) && ! empty( $lastChange['name'] ) ? $lastChange['name'] : '';
 } else if( isset($payload['repository']['url']) && strpos($payload['repository']['url'],"github")!==FALSE ) {
   $branch = str_replace("refs/heads/","",$payload['ref']);
 } else {
