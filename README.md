@@ -8,11 +8,11 @@ to update a folder with the same name of the branch, but this can be configured 
 When using topic branching you can easily designate certain branches to represent application environments or locations.
 Imagine a branch dedicated to your staging, development or production environment.
 
-<img src="https://dl.dropbox.com/u/5156502/myWebHookEnvironments.png" height=340 />
+<img src="https://www.dropbox.com/s/kre58bltejl1oxh/myWebHookEnvironments.png?dl=1" height=340 />
 
 > You can also associate a branch with multiple folders
 
-<img src="https://dl.dropbox.com/u/5156502/myWebHookClients.png" height=340 />
+<img src="https://www.dropbox.com/s/6tbhospuvkwzf2w/myWebHookClients.png?dl=1" height=340 />
 
 ## Installation
 
@@ -42,10 +42,10 @@ $log = FALSE;
 
 ## Activate on Github
 
-<img src="https://dl.dropbox.com/u/5156502/myWebHookGithubSetup.png" />
+<img src="https://www.dropbox.com/s/avnm5e8gwcnguez/myWebHookGithubSetup.png?dl=1" />
 
 ## Activate on BitBucket
 
-<img src="https://dl.dropbox.com/u/5156502/myWebHookBitbucketSetup.png" />
+<img src="https://www.dropbox.com/s/xtl8uvs0epkfp7k/myWebHookBitbucketSetup.png?dl=1" />
 
 # License: [arlo.mit-license.org](http://arlo.mit-license.org)
